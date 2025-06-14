@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Art Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Interactive Art Gallery</h1>
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search artworks...">
+            <select id="departmentSelect">
+                <option value="">All Departments</option>
+                <option value="11">American Decorative Arts</option>
+                <option value="6">Asian Art</option>
+                <option value="13">European Paintings</option>
+                <option value="21">Modern Art</option>
+                <option value="14">European Sculpture</option>
+            </select>
+            <button id="searchBtn" class="btn">Search</button>
+            <button id="view3d" class="btn">3D Gallery</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="status" class="status"></div>
+        <div id="gallery" class="gallery-grid"></div>
+        <button id="loadMore" class="btn load-more" style="display:none;">Load More</button>
+        
+        <div id="artworkModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="">
+                    <div class="modal-info">
+                        <h2 id="modalTitle"></h2>
+                        <p id="modalArtist"></p>
+                        <p id="modalDate"></p>
+                        <p id="modalMedium"></p>
+                        <p id="modalDepartment"></p>
+                        <div class="modal-buttons">
+                            <button id="viewIn3DBtn" class="btn">View in 3D</button>
+                            <button id="readMoreBtn" class="btn">Read More</button>
+                        </div>
+                        <div id="extendedInfo" class="extended-info hidden">
+                            <h3>About this Artwork</h3>
+                            <div id="extendedContent">
+                                <p class="loading-text">Loading information...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal3d" class="modal">
+            <div class="modal-content">
+                <span class="close3d">&times;</span>
+                <div class="controls-3d">
+                    <button id="prevArt" class="btn">Previous</button>
+                    <button id="nextArt" class="btn">Next</button>
+                    <button id="autoRotate" class="btn">Auto Rotate</button>
+                </div>
+                <div class="instructions-3d">
+                    <p><strong>Controls:</strong> Left click + drag to rotate • Scroll to zoom • Right click + drag to pan</p>
+                </div>
+                <div id="canvas-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Art data provided by The Metropolitan Museum of Art</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
